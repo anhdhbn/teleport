@@ -1,0 +1,20 @@
+{
+  "name": "teleport",
+  "version": "1.0.0",
+  "description": "NAT port",
+  "main": "cli.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anh DH",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "debug": "^4.1.1",
+    "got": "^10.2.1",
+    "url-parse": "^1.4.7"
+  }
+}

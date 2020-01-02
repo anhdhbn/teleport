@@ -1,0 +1,17 @@
+{
+  "name": "teleport-tcp-relay",
+  "version": "1.0.0",
+  "description": "relay",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anh DH",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
+}

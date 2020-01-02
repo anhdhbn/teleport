@@ -1,0 +1,25 @@
+{
+  "name": "teleport-server",
+  "version": "1.0.0",
+  "description": "NAT port",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "NAT",
+    "port"
+  ],
+  "author": "AnhDH",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "get-port": "^5.1.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "port-validator": "0.1.0-beta1"
+  }
+}
