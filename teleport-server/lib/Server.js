@@ -65,7 +65,12 @@ class Server {
     })
 
     router.get('/status/versions', async (ctx, next) => {
-      ctx.body = [require('teleport-tcp-relay/package.json')]
+      ctx.body = require('../../teleport/package.json').version
+    })
+
+    router.get('/download', async (ctx, next) => {
+      ctx.redirect(`/assets/teleport-${require('../../teleport/package.json').version}`)
+      ctx.status = 302
     })
 
     router.get('/status/:internetPort', async (ctx, next) => {

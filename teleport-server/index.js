@@ -1,11 +1,16 @@
 var Server = require("./lib/Server")
 
 module.exports = async () => {
-  serverPort = process.env.PORT || 8081
-  serverDomain = process.env.DOMAIN || "localhost"
+  serverPort = process.env.PORT ||  80
+  serverDomain = process.env.DOMAIN || "s0.anhdh.tk"
   serverToken =  process.env.TOKEN || require("../teleport/package.json").version
   if(!serverDomain) {
     console.error("Must enter domain server")
+    process.exit(0)
+  }
+
+  if(!serverPort) {
+    console.error("Must enter port server")
     process.exit(0)
   }
 
@@ -13,7 +18,6 @@ module.exports = async () => {
     serverPort: serverPort,
     serverDomain: serverDomain,
     serverToken: serverToken,
-    landingPage: "https://viblo.asia/p/gioi-thieu-ve-koajs-E375zyARlGW"
   })
   await server.create()
   process.on('uncaughtException', (err) => {

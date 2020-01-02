@@ -33,7 +33,7 @@ module.exports = async (argv) => {
 
   const client = new Client(program.port, {
     host: "localhost",
-    server: "localhost:8081",
+    server: "s0.anhdh.tk:80",
     token:  require("./package.json").version,
     internetPort: program.internetPort
   })
