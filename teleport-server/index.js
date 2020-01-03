@@ -2,7 +2,7 @@ var Server = require("./lib/Server")
 
 module.exports = async () => {
   serverPort = process.env.PORT ||  80
-  serverDomain = process.env.DOMAIN || "s0.anhdh.tk"
+  serverDomain = process.env.DOMAIN || "teleport.anhdh.tk"
   serverToken =  process.env.TOKEN || require("../teleport/package.json").version
   if(!serverDomain) {
     console.error("Must enter domain server")
