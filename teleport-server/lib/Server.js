@@ -28,8 +28,6 @@ class Server {
 
   generateBannerMessage (body) {
     return `
-  Hello mother fucker
-
   Hit ctrl+c to close the tunnel
     `
   }

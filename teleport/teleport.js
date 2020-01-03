@@ -40,7 +40,7 @@ module.exports = async (argv) => {
   })
   await client.create()
   let message = `
-  ✨  Hypertunnel created.
+  ✨  tunnel created.
 
   Tunneling ${client.uri} > ${client.host}:${client.port}
   `
