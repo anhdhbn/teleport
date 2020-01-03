@@ -40,7 +40,7 @@ module.exports = async (argv) => {
   })
   await client.create()
   let message = `
-  ✨  tunnel created.
+  ✨ tunnel created.
 
   Tunneling ${client.uri} > ${client.host}:${client.port}
   `
@@ -49,7 +49,7 @@ module.exports = async (argv) => {
 
   ;['SIGINT', 'SIGTERM'].forEach(signal => process.on(signal, async () => {
     await deleteTunnel(client)
-    console.log('  Tunnel closed.')
+    console.log('Tunnel closed.')
     process.exit(0)
   }))
 

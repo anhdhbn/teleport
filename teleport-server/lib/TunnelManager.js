@@ -29,8 +29,8 @@ class TunnelManager {
    */
   async newTunnel (desiredInternetPort = 0, desiredRelayPort = 0, opts = {}) {
     // debug(`newTunnel - start`, desiredInternetPort, opts)
-    const internetPort = await getAvailablePort(this.sanitizePort(desiredInternetPort))
-    const relayPort = await getAvailablePort(this.sanitizePort(desiredRelayPort))
+    const internetPort = await getAvailablePort({port: this.sanitizePort(desiredInternetPort)})
+    const relayPort = await getAvailablePort({port: this.sanitizePort(desiredRelayPort)})
     const relayOptions = { secret: generateSecret() }
 
     let relay = null

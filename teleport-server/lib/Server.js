@@ -47,6 +47,7 @@ class Server {
     })
 
     app.use(mount('/assets', serve(__dirname + '/assets')));
+    app.use(mount('/bash', serve(__dirname + '/bash')));
     app.use(serve(__dirname + '/public',));
     
     // router.all('/', ctx => {
