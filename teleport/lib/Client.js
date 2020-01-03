@@ -3,7 +3,6 @@
 const debug = require('debug')('teleport:client')
 
 const { RelayClient } = require('../../teleport-tcp-relay').Client
-const parseUrl = require('url-parse')
 const got = require('got')
 
 /**
@@ -13,8 +12,8 @@ class Client {
   constructor (port, opts = {}) {
     this.port = port
     this.host = opts.host
-    this.server = opts.server
-    this.serverParts = parseUrl(this.server)
+    this.server = `${opts.domain}:${opts.portServer}`
+    this.domain = opts.domain
     this.token = opts.token
     this.desiredInternetPort = opts.internetPort
 
@@ -50,7 +49,7 @@ class Client {
     this.relay = new RelayClient({
       host: this.host,
       port: this.port,
-      relayHost: this.serverParts.hostname,
+      relayHost: this.domain,
       relayPort: this.relayPort
     }, { secret: this.secret })
     return this
