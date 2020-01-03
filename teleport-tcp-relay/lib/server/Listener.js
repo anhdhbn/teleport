@@ -2,7 +2,6 @@
 
 const fs = require('fs')
 const net = require('net')
-const tls = require('tls')
 const EventEmitter = require('events').EventEmitter
 
 const Debug = require('debug')
@@ -33,19 +32,9 @@ class Listener extends EventEmitter {
     this.debug('createServer', { tls: this.options.tls })
     let server = null
 
-    if (this.options.tls === true) {
-      const tlsOptions = {
-        pfx: fs.readFileSync(this.options.pfx),
-        passphrase: this.options.passphrase
-      }
-      server = tls.createServer(tlsOptions, (socket) => {
-        this.createClient(socket)
-      })
-    } else {
-      server = net.createServer((socket) => {
-        this.createClient(socket)
-      })
-    }
+    server = net.createServer((socket) => {
+      this.createClient(socket)
+    })
     return server
   }
 

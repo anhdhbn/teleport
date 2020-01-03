@@ -2,7 +2,7 @@
 
 const debug = require('debug')('teleport:tunnelmanager')
 
-const { RelayServer, TLSRelayServer } = require('../../teleport-tcp-relay').Server
+const { RelayServer } = require('../../teleport-tcp-relay').Server
 const getAvailablePort = require('get-port')
 const { portValidator } = require('port-validator')
 
@@ -28,7 +28,7 @@ class TunnelManager {
    * @return {Tunnel}
    */
   async newTunnel (desiredInternetPort = 0, desiredRelayPort = 0, opts = {}) {
-    debug(`newTunnel - start`, desiredInternetPort, opts)
+    // debug(`newTunnel - start`, desiredInternetPort, opts)
     const internetPort = await getAvailablePort(this.sanitizePort(desiredInternetPort))
     const relayPort = await getAvailablePort(this.sanitizePort(desiredRelayPort))
     const relayOptions = { secret: generateSecret() }
@@ -37,7 +37,7 @@ class TunnelManager {
     relay = new RelayServer({ relayPort, internetPort }, relayOptions)
     const tunnel = new Tunnel(internetPort, relay, { secret: relayOptions.secret })
     this.tunnels.set(tunnel.internetPort, tunnel)
-    debug('newTunnel - end', tunnel, internetPort, relay, this.tunnels.size)
+    // debug('newTunnel - end', tunnel, internetPort, relay, this.tunnels.size)
     return tunnel
   }
 

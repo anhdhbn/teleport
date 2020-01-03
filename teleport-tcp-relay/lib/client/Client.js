@@ -1,7 +1,6 @@
 'use strict'
 
 const net = require('net')
-const tls = require('tls')
 const EventEmitter = require('events').EventEmitter
 
 const Debug = require('debug')
@@ -20,7 +19,7 @@ class Client extends EventEmitter {
     this.bufferData = true
     this.buffer = []
 
-    this.relaySocket = this.options.tls ? this.createSecureRelaySocket() : this.createRelaySocket()
+    this.relaySocket =  this.createRelaySocket()
     this.relaySocket.on('data', this.onRelaySocketData.bind(this))
     this.relaySocket.on('end', () => this.emit('bytes', {tx: this.relaySocket.bytesWritten, rx: this.relaySocket.bytesRead}))
     this.relaySocket.on('close', this.onRelaySocketClose.bind(this))
@@ -31,13 +30,6 @@ class Client extends EventEmitter {
     this.debug('relaySocket:create')
     const socket = new net.Socket()
     return socket.connect(this.opts.relayPort, this.opts.relayHost, this.onRelaySocketConnect.bind(this))
-  }
-
-  createSecureRelaySocket () {
-    this.debug('relaySocket:createSecure')
-    return tls.connect(this.opts.relayPort, this.opts.relayHost, {
-      rejectUnauthorized: this.options.rejectUnauthorized
-    }, this.onRelaySocketConnect.bind(this))
   }
 
   onRelaySocketConnect () {
