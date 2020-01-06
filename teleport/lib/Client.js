@@ -27,7 +27,7 @@ class Client {
     this.expiresIn = null
     this.serverBanner = null
 
-    debug(`created`, this)
+    // debug(`created`, this)
   }
 
   async create () {

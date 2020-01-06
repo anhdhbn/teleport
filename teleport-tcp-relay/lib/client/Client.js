@@ -71,7 +71,7 @@ class Client extends EventEmitter {
   }
 
   createServiceSocket () {
-    this.debug('serviceSocket:create')
+    this.debug('serviceSocket:create', this.opts)
     this.serviceSocket = new net.Socket()
     this.serviceSocket.connect(this.opts.port, this.opts.host, this.onServiceSocketConnect.bind(this))
     this.serviceSocket.on('data', this.onServiceSocketData.bind(this))
