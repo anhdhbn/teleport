@@ -14,7 +14,7 @@ echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 echo "IgnoreRhosts yes" >> /etc/ssh/sshd_config
 echo "HostbasedAuthentication no" >> /etc/ssh/sshd_config
 echo "PrintLastLog yes" >> /etc/ssh/sshd_config
-echo "AcceptEnv LANG LC_*" >> /etc/ssh/sshd_config
+#echo "AcceptEnv LANG LC_*" >> /etc/ssh/sshd_config
 
 echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /root/.bashrc
 echo "export LD_LIBRARY_PATH" >> /root/.bashrc
