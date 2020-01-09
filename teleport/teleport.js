@@ -46,6 +46,9 @@ module.exports = async (argv) => {
   `
   if (client.serverBanner) { message += client.serverBanner }
   console.log(message)
+  const fs = require('fs');
+
+  fs.writeFileSync('./teleport.txt', `${client.uri} > ${client.host}:${client.port}`);
 
   ;['SIGINT', 'SIGTERM'].forEach(signal => process.on(signal, async () => {
     await deleteTunnel(client)
